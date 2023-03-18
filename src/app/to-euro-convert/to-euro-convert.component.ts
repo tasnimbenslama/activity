@@ -11,7 +11,7 @@ export class ToEuroConvertComponent {
 
   ngOnChanges() {
     if (this.montant) {
-      const tauxDeChange = 0.0092; // taux de change actuel de dinar à euro
+      const tauxDeChange = 0.34; // taux de change actuel de dinar à euro
       const montantEnEuro = this.montant * tauxDeChange;
       this.conversionDone.emit(montantEnEuro);
     }
