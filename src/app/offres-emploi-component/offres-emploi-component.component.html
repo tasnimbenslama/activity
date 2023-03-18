@@ -1,0 +1,19 @@
+
+<h2 class="center">products list</h2>
+<div class="container"       *ngFor="let P of listEmploi">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/Music_Icon.jpg" alt="Card image cap">
+          <h5 class="card-title">{{P.title}}</h5>
+         
+          <button class="btn btn-primary" [disabled]="P.etat==false"> POSTULER </button>
+          <br>
+        
+          
+      </div>
+</div>
+<button class="btn btn-primary" (click)="count()"> Bilan </button>
+
+<br>
+<label class="text-info my-3">
+    Nombre d'emploi non clôturées : <span class="font-weight-bold">{{ result }}</span>
+  </label>

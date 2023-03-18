@@ -1,0 +1,50 @@
+<form #addForm="ngForm" (ngSubmit)="TemplateDrivenForm(addForm)">
+  <h3>information génerales</h3>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="nom" placeholder="Enter name" [(ngModel)]="formulaire.nom" name="nom" required  minlength="4" #nom="ngModel" [class.is-invalid]>
+      <span style="color:red;" *ngIf="nom.invalid && nom?.touched &&nom.errors?.['required']">Nom is required</span>
+      <span style="color:red;" *ngIf="nom.touched && nom?.errors?.['minlength']">Name must be at least 4 caracters</span>
+
+    </div>
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" placeholder="xxxxx.yyyyy@zzz" [(ngModel)]="formulaire.email" name="email" required  minlength="4" pattern=".+@[a-zA-Z0-9]{3}$" #email="ngModel" [class.is-invalid]>
+      <span style="color:red;" *ngIf="email.invalid && email?.touched &&email.errors?.['required']">Email is required</span>
+      <span style="color:red;" *ngIf="email.touched  &&email.errors?.['pattern']">Email is false </span>
+
+
+    </div>
+
+
+    <h3>Information de paiement</h3>
+    <form #myForm="ngForm" (ngSubmit)="TemplateDrivenForm(addForm)">
+    <div class="form-group">
+      <label for="name">Type de carte</label>
+      <input type="text" class="form-control" id="type_de_carte" placeholder="Enter name" [(ngModel)]="formulaire.type_de_carte" name="type_de_carte" required   #type_de_carte="ngModel" [class.is-invalid]>
+      <span style="color:red;" *ngIf="type_de_carte.invalid && type_de_carte?.touched &&type_de_carte.errors?.['required']"> type  is required</span>
+      
+</div>
+
+<div class="form-group">
+      <label for="name">numero_de_carte</label>
+      <input type="text" class="form-control" id="numero_de_carte" placeholder="Enter numero" [(ngModel)]="formulaire.numero_de_carte" name="numero_de_carte" required  minlength="16" maxlength="16" #numero_de_carte="ngModel" [class.is-invalid]>
+      <span style="color:red;" *ngIf="numero_de_carte.invalid && numero_de_carte?.touched &&numero_de_carte.errors?.['required']">numero de carte is required</span>
+      <span style="color:red;" *ngIf="numero_de_carte.touched && numero_de_carte?.errors?.['minlength']">type should be 16 chiffres </span>
+      <span style="color:red;" *ngIf="numero_de_carte.touched && numero_de_carte?.errors?.['maxlength']">type should be 16 chiffres </span>
+    </div>
+    <div class="form-group">
+      <label for="name">Date d'expiration</label>
+      <input type="text" class="form-control" id="date_de_expiration" placeholder="Enter date" [(ngModel)]="formulaire.date_de_expiration" name="date_de_expiration" required  minlength="4" #date_de_expiration="ngModel" [class.is-invalid]>
+      <span style="color:red;" *ngIf="date_de_expiration.invalid && date_de_expiration?.touched &&date_de_expiration.errors?.['required']">date is required</span>
+
+    </div>
+    <div class="form-group">
+      <label for="name">Code</label>
+      <input type="text" class="form-control" id="code" placeholder="Enter code" [(ngModel)]="formulaire.code" name="code" required  minlength="4" #code="ngModel" *ngIf="myForm.valid">
+      
+    </div>
+  </form>
+
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">AJOUTER</button>
+    </form>

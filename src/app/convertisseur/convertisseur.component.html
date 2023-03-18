@@ -1,0 +1,8 @@
+<div>
+    <label for="dinarInput">Montant en dinar :</label>
+    <input type="text" id="dinarInput" [(ngModel)]="montantEnDinar" />
+  </div>
+  <app-to-euro-convert [montant]="montantEnDinar" (conversionDone)="handleConversionDone($event)"></app-to-euro-convert>
+  <div *ngIf="montantConverti">
+    {{montantEnDinar}} dinar(s) = {{montantConverti}} euro(s)
+  </div>
